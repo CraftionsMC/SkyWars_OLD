@@ -3,3 +3,6 @@ version: ${project.version}
 main: net.craftions.skywars.SkyWars
 api-version: 1.16
 authors: [ MCTzOCK, Sausefix ]
+commands:
+  start:
+    permission: skywars.command.start
