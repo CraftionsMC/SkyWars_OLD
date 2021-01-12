@@ -2,6 +2,7 @@ package net.craftions.skywars.util;
 
 import net.craftions.skywars.SkyWars;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 public class Game {
 
@@ -31,8 +32,11 @@ public class Game {
     }
 
     protected static void start(){
-        for(int i = 0; i < Bukkit.getOnlinePlayers().size(); i++){
-            
+        Player[] onlineArray = new Player[Bukkit.getOnlinePlayers().size()];
+        int i = 0;
+        for(Player p : Bukkit.getOnlinePlayers()){
+            onlineArray[i] = p;
+            i++;
         }
         SkyWars.isStarting = false;
         SkyWars.isStarted = true;

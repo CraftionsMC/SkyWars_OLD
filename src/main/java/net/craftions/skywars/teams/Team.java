@@ -33,7 +33,7 @@ public class Team {
         return players;
     }
 
-    public void addPLayer(Player p){
+    public void addPlayer(Player p){
         players.add(p);
     }
 }
