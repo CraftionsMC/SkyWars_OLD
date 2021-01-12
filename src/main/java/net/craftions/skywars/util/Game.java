@@ -1,8 +1,12 @@
 package net.craftions.skywars.util;
 
 import net.craftions.skywars.SkyWars;
+import net.craftions.skywars.teams.Teams;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Game {
 
@@ -32,12 +36,29 @@ public class Game {
     }
 
     protected static void start(){
-        Player[] onlineArray = new Player[Bukkit.getOnlinePlayers().size()];
-        int i = 0;
-        for(Player p : Bukkit.getOnlinePlayers()){
-            onlineArray[i] = p;
-            i++;
+        ArrayList<Player> onlinePlayers = Bukkit.getOnlinePlayers().stream().collect(Collectors.toCollection(ArrayList::new));
+        int currentIndex = 0;
+        for(int i = 0; i < SkyWars.teams; i++){
+            for(int j = 0; j < onlinePlayers.size(); j++){
+                Teams.teams[i].addPlayer(onlinePlayers.get(currentIndex));
+                onlinePlayers.get(currentIndex).teleport(Teams.teams[i].getSpawn());
+                onlinePlayers.get(currentIndex).sendMessage(SkyWars.prefix + "§7Du bist in Team " + Teams.teams[i].getColorCode() + Teams.teams[i].getName());
+                // TODO Kits
+                currentIndex++;
+            }
         }
+        // ** OLD **
+        /* if(Bukkit.getOnlinePlayers().size() / SkyWars.teamSize == SkyWars.teams){
+            int currentIndex = 0;
+            for(int i = 0; i < SkyWars.teams; i++){
+                for(int j = 0; j < onlinePlayers.size(); j++){
+                    Teams.teams[i].addPlayer(onlinePlayers.get(currentIndex));
+                    currentIndex++;
+                }
+            }
+        }else {
+        } */
+        // ** OLD **
         SkyWars.isStarting = false;
         SkyWars.isStarted = true;
     }

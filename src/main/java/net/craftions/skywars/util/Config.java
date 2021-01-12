@@ -16,6 +16,7 @@ public class Config {
     }
 
     public static void initConfig(){
+        SkyWars.locationManager.setLocation("spawn", c.getLocation("world.spawn"));
         SkyWars.locationManager.setLocation("spawn_red", c.getLocation("team.red.spawn"));
         SkyWars.locationManager.setLocation("spawn_blue", c.getLocation("team.blue.spawn"));
         SkyWars.locationManager.setLocation("spawn_green", c.getLocation("team.green.spawn"));

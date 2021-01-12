@@ -1,6 +1,7 @@
 package net.craftions.skywars.commands;
 
 import net.craftions.skywars.SkyWars;
+import net.craftions.skywars.util.Game;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,6 +20,7 @@ public class CommandStart implements CommandExecutor {
                 time = SkyWars.timeToStart;
             }
         }
+        Game.start(time);
         return true;
     }
 }
