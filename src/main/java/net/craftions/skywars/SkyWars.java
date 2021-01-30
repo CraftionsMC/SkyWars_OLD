@@ -12,7 +12,7 @@ public final class SkyWars extends JavaPlugin {
     public static final String prefix = "[§eSky§cWars§r] ";
     public static Boolean isStarted = false;
     public static Boolean isStarting = false;
-    public static Integer timeToStart = 60;
+    public static Integer timeToStart = 20;
     public static Integer timeToStop = 600;
     public static Integer teamSize = 1;
     public static Integer teams = 4;
