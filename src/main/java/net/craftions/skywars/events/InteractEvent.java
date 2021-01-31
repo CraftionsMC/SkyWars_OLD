@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
@@ -25,7 +26,16 @@ public class InteractEvent implements Listener {
                 Kitsauswahlinv.addItem(new ItemStack(Material.OAK_WOOD, 1));
                 p.openInventory(Kitsauswahlinv);
 
+
+
             }
+        }
+    }
+
+    @EventHandler
+    public void place(BlockPlaceEvent e){
+        if (e.getBlock().getType() == Material.ENDER_CHEST){
+            e.setCancelled(true);
         }
     }
 }
