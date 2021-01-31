@@ -13,6 +13,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Objects;
+
 public class EventPlayerJoin implements Listener {
 
     @EventHandler
@@ -24,10 +26,12 @@ public class EventPlayerJoin implements Listener {
 
     public void onClick(PlayerInteractEvent e){
         if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK){
-            if(e.getItem().isSimilar(compass())){
+            if(Objects.requireNonNull(e.getItem()).isSimilar(compass())){
                 Player p = e.getPlayer();
                 Inventory kitsauswahlinv = Bukkit.createInventory(null, InventoryType.CHEST,"§6 Kits");
 
+
+                kitsauswahlinv.addItem(new ItemStack(Material.OAK_WOOD, 1));
 
             }
         }
@@ -38,7 +42,7 @@ public class EventPlayerJoin implements Listener {
     public ItemStack compass(){
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         ItemMeta meta = compass.getItemMeta();
-        meta.setDisplayName("§6 Kits");
+        Objects.requireNonNull(meta).setDisplayName("§6 Kits");
         compass.setItemMeta(meta);
         return compass;
 

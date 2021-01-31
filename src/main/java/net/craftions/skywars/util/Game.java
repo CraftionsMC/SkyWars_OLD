@@ -18,6 +18,7 @@ public class Game {
         count = time;
         SkyWars.isStarting = true;
         id = Bukkit.getScheduler().scheduleSyncRepeatingTask(SkyWars.skywars, new Runnable() {
+
             @Override
             public void run() {
                 if(count == 0){
