@@ -24,7 +24,7 @@ public class EventPlayerJoin implements Listener {
 
 
     public static ItemStack compass(){
-        ItemStack compass = new ItemStack(Material.COMPASS, 1);
+        ItemStack compass = new ItemStack(Material.ENDER_CHEST, 1);
         ItemMeta meta = compass.getItemMeta();
         Objects.requireNonNull(meta).setDisplayName("§6 Kits");
         compass.setItemMeta(meta);

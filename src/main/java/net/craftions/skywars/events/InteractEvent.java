@@ -20,9 +20,11 @@ public class InteractEvent implements Listener {
         if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (Objects.requireNonNull(e.getItem()).isSimilar(EventPlayerJoin.compass())) {
                 Player p = e.getPlayer();
-                Inventory kitsauswahlinv = Bukkit.createInventory(null, InventoryType.CHEST, "§6 Kits");
+                Inventory Kitsauswahlinv = Bukkit.createInventory(null, InventoryType.PLAYER, "§6 Kits");
 
-                kitsauswahlinv.addItem(new ItemStack(Material.OAK_WOOD, 1));
+                Kitsauswahlinv.addItem(new ItemStack(Material.OAK_WOOD, 1));
+                p.openInventory(Kitsauswahlinv);
+
             }
         }
     }
